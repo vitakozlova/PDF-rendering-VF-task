@@ -1,0 +1,207 @@
+<apex:page standardController="Credit_Memo__c" extensions="PrintVoucherCtrl" renderAs="pdf"
+    sidebar="false" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+    <html>
+
+    <head>
+        <style>
+            /* renderAs="pdf"  */
+
+            @page {
+                size: A5 landscape;
+                margin: 0;
+            }
+
+            body,
+            html {
+                font-family: sans-serif;
+                height: 100%;
+                margin: 0;
+                background-color: rgb(160, 160, 160);
+            }
+
+            .text-and-index {
+                color: white;
+                z-index: 2;
+            }
+
+            .background-image {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                page-break-after: avoid;
+            }
+
+            #bottom-table {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                z-index: 2;
+            }
+
+            #bottom-table td {
+                width: 50%;
+            }
+
+            #voucher-no {
+                padding-left: 25px;
+                font-weight: bolder;
+                font-size: 14px;
+            }
+
+            #left-top-corner {
+                position: absolute;
+                top: 30px;
+                left: 0;
+            }
+
+            #cert-title-text {
+                word-break: break-word;
+                font-size: 38px;
+                font-weight: bolder;
+                width: 190px;
+                padding-left: 40px;
+            }
+
+            #cert-title-slash {
+                padding: 5px 10px;
+            }
+
+            .vl {
+                border-left: 4px solid white;
+                height: 66px;
+            }
+
+            #cert-price-amount {
+                font-size: 60px;
+            }
+
+            #cert-price-currency-iso {
+                font-size: 16px;
+            }
+
+            #exclusively-text {
+                font-size: 24px;
+
+            }
+
+            #exclusively-for-name {
+                font-size: 28px;
+                font-weight: 600;
+            }
+
+            .notes {
+                width: 60%;
+                padding-right: 40px;
+                word-break: break-word;
+                font-size: 15px;
+            }
+
+            .note-item {
+                font-weight: bolder;
+                padding-left: 20px;
+            }
+
+            .exclusively-blck {
+                padding-left: 40px;
+            }
+
+            ul {
+                /* list-style-position: inside; */
+                margin: 0;
+                padding: 0;
+            }
+            
+            li:before {
+                font-weight: 100;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid red;
+            }
+
+            #logo {
+                padding-right: 25px;
+                z-index: 2;
+                float: right;
+                width: auto;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <apex:image styleClass="background-image" url="{! imageUrl }" rendered="{! imageUrl != null }" alt="" />
+
+        <table id="left-top-corner" class="text-and-index">
+            <tr>
+                <td id="cert-title-text">
+                    <span>
+                        travel gift certificate
+                    </span>
+                </td>
+                <td id="cert-title-slash">
+                    <div class="vl"></div>
+                </td>
+                <td>
+                    <span id="cert-price-currency-iso">{! Credit_Memo__c.Currency_ISO__c }</span>
+                </td>
+                <td>
+                    <span id="cert-price-amount">{! Credit_Memo__c.Amount__c}</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="5" class="exclusively-blck">
+                    <span id="exclusively-text">Exclusively for </span>
+                    <span id="exclusively-for-name">
+                        <apex:outputText value="{! Credit_Memo__c.Account__r.Name }" rendered="{!Credit_Memo__c.Exclusively_For__c = null}"
+                        />
+                        <apex:outputText value="{! Credit_Memo__c.Exclusively_For__c }" rendered="{!Credit_Memo__c.Exclusively_For__c != null}"
+                        />
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td class="notes">
+                    <ul>
+                        <li>
+                            <span class="note-item">sshhhdhdhjs ggg sshhhdh dhjssshh hdhdhjss shhhdhdhjssshh hdhdhjs sshhhdhdhjs  </span>
+                        </li>
+                        <li>
+                            <span class="note-item">sshhhdhdhjs</span>
+                        </li>
+
+                        <li>
+                            <span class="note-item">sshhhdhdhjs</span>
+                        </li>
+                        <li>
+                            <span class="note-item">sshhhdhdhjs</span>
+                        </li>
+                    </ul>
+                    <!-- <apex:outputText value="{! Credit_Memo__c.Note__c }" escape="false" /> -->
+                </td>
+            </tr>
+        </table>
+
+        <table id="bottom-table">
+            <tr>
+                <td>
+                    <div id="voucher-no" class="text-and-index">
+                        <span>Voucher No: {! Credit_Memo__c.Name }</span>
+                    </div>
+                </td>
+                <td>        
+                    <div id="logo">
+                        <apex:image url="{!$Resource.Test_Logo}" width="auto" height="50"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+
+    </html>
+</apex:page>

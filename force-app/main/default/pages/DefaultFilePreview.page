@@ -1,0 +1,19 @@
+<apex:page standardController="Credit_Memo__c" sidebar="false" showHeader="false" lightningStylesheets="true">
+
+    <apex:includeLightning />
+
+    <div id="file-preview-block"></div>
+
+    <script>
+        $Lightning.use('c:DefaultFilePreviewApp', function() {
+            $Lightning.createComponent(
+                'c:DefaultFilePreview', 
+                {
+                    'recordId': '{! Credit_Memo__c.Id }'
+                },
+                'file-preview-block',
+                function (component) {}
+            );
+        });
+    </script>
+</apex:page>
