@@ -1,0 +1,10 @@
+# Salesforce cache
+.sfdx/
+.vscode/
+config/
+scripts/
+
+.forceignore
+.prettierignore
+.prettierrc
+force-app/main/default/lwc/
