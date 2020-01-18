@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Note_Default_Value__c</fullName>
+    <defaultValue>&#39;. Valid for these countries&#39; &amp;
+&#39;. Valid for&#39; &amp; 
+&#39;. Valid for&#39;</defaultValue>
+    <description>The default value for Note field on Credit Memo object</description>
+    <externalId>false</externalId>
+    <label>Note Default Value</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>
