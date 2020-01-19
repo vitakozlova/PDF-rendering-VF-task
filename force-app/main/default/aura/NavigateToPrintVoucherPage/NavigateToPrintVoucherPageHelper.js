@@ -1,8 +1,7 @@
 ({
     navigateToPrintVoucherPage : function(component, event) {
         var currentRecordId = component.get('v.recordId');
-        var fakeAction = component.get('c.getDefaultImageId');
-        fakeAction.setParams({'creditMemoId': currentRecordId});
+        var fakeAction = component.get('c.fakeServerCall');
 
         fakeAction.setCallback(this, function(response) {
             $A.get("e.force:closeQuickAction").fire();

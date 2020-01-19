@@ -1,4 +1,4 @@
-<aura:component implements="force:lightningQuickAction, force:hasRecordId" controller="DefaultFilePreviewCtrl">
+<aura:component implements="force:lightningQuickAction, force:hasRecordId" controller="NavigateToPrintVoucherPageCtrl">
     <aura:attribute name="recordId" type="String" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
