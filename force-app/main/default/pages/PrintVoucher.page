@@ -3,8 +3,6 @@
     <html>
         <head>
             <style>
-                /* renderAs="pdf"  */
-
                 @page {
                     size: A5 landscape;
                     margin: 0;
@@ -18,7 +16,7 @@
                 }
 
                 .text-and-index {
-                    color: white;
+                    color: {! IF(Credit_Memo__c.Pdf_Text_Color_Hex__c != null, Credit_Memo__c.Pdf_Text_Color_Hex__c, 'white') };
                     z-index: 2;
                 }
 
@@ -61,7 +59,7 @@
                 }
 
                 .vertical-line {
-                    border-left: 4px solid white;
+                    border-left: 4px solid {! IF(Credit_Memo__c.Pdf_Text_Color_Hex__c != null, Credit_Memo__c.Pdf_Text_Color_Hex__c, 'white') } ;
                     height: 66px;
                 }
 
@@ -99,7 +97,6 @@
                     margin: 0;
                     padding: 0;
                     padding-top: 30px;
-                    padding-right: 30px;
                     width: 55%;
                     float: right;
                 }
@@ -126,10 +123,6 @@
                     width: auto;
                     height: 50px;
                 }
-
-                /* table, th, td {
-                    border: 1px solid red;
-                } */
             </style>
         </head>
         <body>

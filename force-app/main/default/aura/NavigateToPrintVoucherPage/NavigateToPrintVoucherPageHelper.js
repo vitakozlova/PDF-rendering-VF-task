@@ -5,7 +5,7 @@
 
         fakeAction.setCallback(this, function(response) {
             $A.get("e.force:closeQuickAction").fire();
-            window.open('/apex/PrintVoucher?id=' + currentRecordId, '_blank', 'width=850,height=600');
+            window.open('/apex/PrintVoucher?id=' + currentRecordId, '_blank', 'width=900,height=700');
         })
 
         $A.enqueueAction(fakeAction);
