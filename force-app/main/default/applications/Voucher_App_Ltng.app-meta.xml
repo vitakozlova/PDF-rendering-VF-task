@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
-    <defaultLandingTab>standard-home</defaultLandingTab>
-    <description>This is an application to print the voucher and manipulate with Files data</description>
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>This is an application for the voucher print logic</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Voucher App</label>
+    <navType>Standard</navType>
     <tabs>standard-Account</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>Credit_Memo__c</tabs>
-    <tabs>standard-Workspace</tabs>
     <tabs>standard-File</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Voucher_App_UtilityBar</utilityBar>
 </CustomApplication>
